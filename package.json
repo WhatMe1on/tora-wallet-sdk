@@ -1,47 +1,64 @@
 {
-  "name": "tora-wallet-sdk",
+  "name": "day1",
   "version": "1.0.0",
-  "main": "index.ts",
+  "description": "wallet include hd and AA wallet",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "browser": "dist/umd/index.js",
+  "types": "dist/cjs/index.d.ts",
   "scripts": {
+    "dev": "father dev",
+    "build": "father build",
+    "build:deps": "father prebundle",
+    "prepublishOnly": "father doctor && npm run build",
     "test": "jest"
   },
-  "author": "Tora",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "bip32": "^4.0.0",
-    "bip39": "^3.0.4",
-    "bitcoinjs-lib": "^6.1.5",
-    "bitcore-lib": "8.25.31",
-    "ecpair": "^2.1.0",
-    "tiny-secp256k1": "^2.2.3"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FishcakeLab/wallet-sdk.git"
   },
-  "devDependencies": {
-    "@babel/core": "^7.22.9",
-    "@babel/preset-env": "^7.22.9",
-    "@babel/preset-typescript": "^7.22.5",
-    "@midwayjs/cli": "1.0.0",
-    "@midwayjs/luckyeye": "1.0.0",
-    "@midwayjs/mock": "2.3.0",
-    "@types/bs58check": "^2.1.0",
-    "@types/jest": "26.0.10",
-    "@types/koa-bodyparser": "4.3.0",
-    "@types/node": "14",
-    "@typescript-eslint/eslint-plugin": "^5.13.0",
-    "@typescript-eslint/parser": "^5.13.0",
+  "author": "seek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FishcakeLab/wallet-sdk/issues"
+  },
+  "homepage": "https://github.com/FishcakeLab/wallet-sdk#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "bip32": "3.0.1",
+    "bip39": "^3.0.4",
+    "ethers": "^5.6.9",
+    "bignumber.js": "9.0.1",
     "@ethereumjs/common": "2.4.0",
     "@ethereumjs/tx": "3.2.1",
-    "babel-jest": "^29.6.2",
-    "cross-env": "6.0.0",
-    "eslint": "^8.4.1",
-    "eslint-config-semistandard": "^17.0.0",
-    "jest": "26.4.0",
-    "mwts": "^1.0.5",
-    "tronweb": "^2.10.1",
-    "ts-jest": "26.2.0",
-    "ts-node": "10.4.0",
-    "typescript": "5.0.2",
-    "import-local": "^3.0.2"
+    "@ethersproject/abi": "^5.6.9"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.8",
+    "@babel/plugin-transform-modules-commonjs": "^7.25.7",
+    "@babel/preset-env": "^7.25.8",
+    "@types/jest": "^27",
+    "@umijs/test": "^4",
+    "babel-plugin-minify-dead-code-elimination": "^0.5.2",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "babel-preset-minify": "^0.5.2",
+    "father": "^4.5.1-beta.4",
+    "jest": "^30.0.0-alpha.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "ts-node": "^10",
+    "typescript": "^4"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=22.0.0"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js",
+      "types": "./dist/cjs/index.d.ts"
+    }
   },
   "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
 }

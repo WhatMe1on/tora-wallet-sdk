@@ -1,15 +1,23 @@
 {
-    "compilerOptions": {
-      "resolveJsonModule": true,
-      "strict": true,
-      "declaration": true,
-      "skipLibCheck": true,
-      "baseUrl": "./",
-      "paths": {
-        "@/*": ["./wallet/*"]
-      },
-      "esModuleInterop": true
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "strict": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "./wallet/*"
+      ]
     },
-    "include": ["wallet/**/*"],
-    "exclude": ["node_modules", "dist"]
-  }
+    "esModuleInterop": true,
+  },
+  "include": [
+    "src/**/*",
+    "test/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
