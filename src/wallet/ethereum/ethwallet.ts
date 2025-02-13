@@ -1,9 +1,9 @@
-import {Interface} from '@ethersproject/abi';
-import {FeeMarketEIP1559Transaction, Transaction} from '@ethereumjs/tx'
+import { Interface } from '@ethersproject/abi';
+import { FeeMarketEIP1559Transaction, Transaction } from '@ethereumjs/tx'
 import Common from '@ethereumjs/common'
 
-const ethers = require('ethers');
-const BigNumber = require('bignumber.js');
+import * as ethers from 'ethers';
+import * as BigNumber from 'bignumber.js';
 
 export function numberToHex(value) {
     const number = BigNumber(value);
@@ -11,7 +11,7 @@ export function numberToHex(value) {
     return '0x' + result;
 }
 
-export function createEthAddress (seedHex: string, addressIndex: string) {
+export function createEthAddress(seedHex: string, addressIndex: string) {
     const hdNode = ethers.utils.HDNode.fromSeed(Buffer.from(seedHex, 'hex'));
     const {
         privateKey,
@@ -25,7 +25,7 @@ export function createEthAddress (seedHex: string, addressIndex: string) {
     });
 }
 
-export async function signOpMainnetTransaction (params: any): Promise<string> {
+export async function signOpMainnetTransaction(params: any): Promise<string> {
     const { privateKey, nonce, from, to, gasLimit, gasPrice, amount, data, chainId, decimal, maxFeePerGas, maxPriorityFeePerGas, tokenAddress, tokenId } = params;
     const wallet = new ethers.Wallet(Buffer.from(privateKey, 'hex'));
     const txData: any = {
@@ -38,7 +38,7 @@ export async function signOpMainnetTransaction (params: any): Promise<string> {
     };
     if (maxFeePerGas && maxPriorityFeePerGas) {
         txData.maxFeePerGas = numberToHex(maxFeePerGas);
-        txData.maxPriorityFeePerGas =  numberToHex(maxPriorityFeePerGas);
+        txData.maxPriorityFeePerGas = numberToHex(maxPriorityFeePerGas);
     } else {
         txData.gasPrice = ethers.utils.hexlify(gasPrice);
     }
@@ -66,8 +66,6 @@ export async function signOpMainnetTransaction (params: any): Promise<string> {
     }
     return wallet.signTransaction(txData);
 }
-
-
 
 export function ethSign(params) {
     let { privateKey, nonce, from, to, gasPrice, gasLimit, amount, tokenAddress, decimal, maxPriorityFeePerGas, maxFeePerGas, chainId, data } = params;

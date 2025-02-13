@@ -1,30 +1,10 @@
 {
-  "name": "day1",
+  "name": "tora-wallet-sdk",
   "version": "1.0.0",
-  "description": "wallet include hd and AA wallet",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "browser": "dist/umd/index.js",
-  "types": "dist/cjs/index.d.ts",
-  "scripts": {
-    "dev": "father dev",
-    "build": "father build",
-    "build:deps": "father prebundle",
-    "prepublishOnly": "father doctor && npm run build",
-    "test": "jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/FishcakeLab/wallet-sdk.git"
-  },
-  "author": "seek",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/FishcakeLab/wallet-sdk/issues"
-  },
-  "homepage": "https://github.com/FishcakeLab/wallet-sdk#readme",
-  "publishConfig": {
-    "access": "public"
+  "description": "<!-- parent:   order: false -->",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
   },
   "dependencies": {
     "bip32": "3.0.1",
@@ -40,6 +20,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.25.7",
     "@babel/preset-env": "^7.25.8",
     "@types/jest": "^27",
+    "@types/node": "^22.13.1",
     "@umijs/test": "^4",
     "babel-plugin-minify-dead-code-elimination": "^0.5.2",
     "babel-plugin-transform-remove-console": "^6.9.4",
@@ -50,15 +31,22 @@
     "ts-node": "^10",
     "typescript": "^4"
   },
-  "engines": {
-    "node": ">=18.0.0 <=22.0.0"
+  "scripts": {
+    "dev": "father dev",
+    "build": "father build",
+    "build:deps": "father prebundle",
+    "prepublishOnly": "father doctor && npm run build",
+    "test": "jest"
   },
-  "exports": {
-    ".": {
-      "require": "./dist/cjs/index.js",
-      "import": "./dist/esm/index.js",
-      "types": "./dist/cjs/index.d.ts"
-    }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WhatMe1on/tora-wallet-sdk.git"
   },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WhatMe1on/tora-wallet-sdk/issues"
+  },
+  "homepage": "https://github.com/WhatMe1on/tora-wallet-sdk#readme",
   "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
 }
