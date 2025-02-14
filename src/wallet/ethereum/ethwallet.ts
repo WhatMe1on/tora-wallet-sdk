@@ -2,11 +2,11 @@ import { Interface } from '@ethersproject/abi';
 import { FeeMarketEIP1559Transaction, Transaction } from '@ethereumjs/tx'
 import Common from '@ethereumjs/common'
 
-import * as ethers from 'ethers';
-import * as BigNumber from 'bignumber.js';
+import ethers = require('ethers');
+const BigNumber = require('bignumber.js');
 
-export function numberToHex(value) {
-    const number = BigNumber(value);
+export function numberToHex(value: any) {
+    const number = new BigNumber(value);
     const result = number.toString(16);
     return '0x' + result;
 }
@@ -67,7 +67,7 @@ export async function signOpMainnetTransaction(params: any): Promise<string> {
     return wallet.signTransaction(txData);
 }
 
-export function ethSign(params) {
+export function ethSign(params: any) {
     let { privateKey, nonce, from, to, gasPrice, gasLimit, amount, tokenAddress, decimal, maxPriorityFeePerGas, maxFeePerGas, chainId, data } = params;
     const transactionNonce = numberToHex(nonce);
     const gasLimits = numberToHex(gasLimit);
