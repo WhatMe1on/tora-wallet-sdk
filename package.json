@@ -13,7 +13,9 @@
     "bignumber.js": "9.0.1",
     "@ethereumjs/common": "2.4.0",
     "@ethereumjs/tx": "3.2.1",
-    "@ethersproject/abi": "^5.6.9"
+    "@ethersproject/abi": "^5.6.9",
+    "bitcoinjs-lib": "^7.0.0-rc.0",
+    "tiny-secp256k1":"2.2.3"
   },
   "devDependencies": {
     "@babel/core": "^7.25.8",
