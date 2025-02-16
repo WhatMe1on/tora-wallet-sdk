@@ -10,6 +10,7 @@ const Secp256k1 = elliptic.ec('secp256k1');
 // init ECC lib
 bitcoin.initEccLib(ecc);
 
+
 const bchNetwork = {
     messagePrefix: '\x18Bitcoin Signed Message:\n',
     bech32: 'bc',

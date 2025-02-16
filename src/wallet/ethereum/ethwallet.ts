@@ -11,6 +11,7 @@ export function numberToHex(value: any) {
     return '0x' + result;
 }
 
+
 export function createEthAddress(seedHex: string, addressIndex: string) {
     const hdNode = ethers.utils.HDNode.fromSeed(Buffer.from(seedHex, 'hex'));
     const {
